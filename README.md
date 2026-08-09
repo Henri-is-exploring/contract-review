@@ -8,9 +8,9 @@
 
 > 设计原则：**修订准确 > 流程完整 > 速度**。宁可慢、宁可多问，也不许跳步、不许假改。
 
-## 📦 直接装进你的 Agent（WorkBuddy）
+## 📦 直接装进你的 Agent
 
-这是一个 **WorkBuddy Skill**，无需任何改造，直接放进 Agent 的 skills 目录就能用。推荐用 git 克隆到用户级目录（对所有项目通用）：
+这是一个 **Skill**，无需任何改造，直接放进 Agent 的 skills 目录就能用。推荐用 git 克隆到用户级目录（对所有项目通用）：
 
 ```bash
 git clone https://github.com/Henri-is-exploring/contract-review.git \
