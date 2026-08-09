@@ -3,11 +3,23 @@
 ![type](https://img.shields.io/badge/type-AI%20Skill-orange)
 ![python](https://img.shields.io/badge/python-3.9%2B-blue)
 ![format](https://img.shields.io/badge/format-.docx-green)
-![license](https://img.shields.io/badge/license-MIT-blue)
 
 一个把「资深法务审合同」做成可复用工作流的 AI Skill。上传 `.docx` 合同后，自动走完 **立场确认 → 知识库审查 → 产出 Word 修订稿 + 审核报告 → 审核要点回补知识库** 的全流程。
 
 > 设计原则：**修订准确 > 流程完整 > 速度**。宁可慢、宁可多问，也不许跳步、不许假改。
+
+## 📦 直接装进你的 Agent（WorkBuddy）
+
+这是一个 **WorkBuddy Skill**，无需任何改造，直接放进 Agent 的 skills 目录就能用。推荐用 git 克隆到用户级目录（对所有项目通用）：
+
+```bash
+git clone https://github.com/Henri-is-exploring/contract-review.git \
+  ~/.workbuddy/skills/contract-review
+```
+
+或者手动复制：把整个 `contract-review/` 文件夹复制到 `~/.workbuddy/skills/contract-review/` 即可。
+
+装好后，在对话里上传一份 `.docx` 合同并说「审核这份合同」，Agent 会先确认你的立场（甲方 / 乙方）、谈判地位与审核尺度，再按下方 8 步工作流产出 Word 修订稿 + 审核报告。
 
 ## 特性
 
@@ -23,12 +35,11 @@ contract-review/
 ├── SKILL.md                           # 工作流编排（8 步）
 ├── references/
 │   └── contract-review-playbook.md    # 核心审查知识库（只追加不修改）
-├── scripts/
-│   ├── extract_clauses.py             # 抽条款清单，防跳读
-│   ├── track_changes.py               # 生成 Word 修订稿（真实修订标记 + 批注）
-│   ├── generate_report.py             # 生成审核报告 .docx
-│   └── update_playbook.py             # 审核要点回补知识库（含去重）
-└── LICENSE
+└── scripts/
+    ├── extract_clauses.py             # 抽条款清单，防跳读
+    ├── track_changes.py               # 生成 Word 修订稿（真实修订标记 + 批注）
+    ├── generate_report.py             # 生成审核报告 .docx
+    └── update_playbook.py             # 审核要点回补知识库（含去重）
 ```
 
 ## 工作流（8 步）
@@ -93,17 +104,9 @@ python3 scripts/update_playbook.py    --input playbook_points.json --playbook re
 - Python 3.9+
 - `python-docx`：`pip install python-docx`
 
-## 使用（接入 Agent）
-
-将本目录整体放入 agent 的 skills 路径（如 `~/.workbuddy/skills/contract-review/`），然后在对话中上传 `.docx` 合同并说「审核这份合同」即可。Agent 会先确认立场与谈判地位，再按上述 8 步产出修订稿与报告。
-
 ## 约束
 
 - 合同输入仅 `.docx`；修订稿/报告输出 `.docx`。
 - 修订标记必须是真实 OOXML 元素，禁止 mock。
 - 知识库原有内容只许追加、不许改删。
 - 身份证号等敏感信息由用户本人填写，skill 不落盘。
-
-## License
-
-[MIT](./LICENSE)。可自由使用、修改、再分发，但须保留版权与许可声明。
