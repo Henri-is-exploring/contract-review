@@ -10,16 +10,13 @@
 
 ## 📦 直接装进你的 Agent
 
-这是一个 **Skill**，无需任何改造，直接放进 Agent 的 skills 目录就能用。推荐用 git 克隆到用户级目录（对所有项目通用）：
+这是一个 Agent 技能（Skill），采用通用的 `SKILL.md` + 脚本结构，无需任何改造，放入你所使用 Agent 的 skills 目录即可：
 
-```bash
-git clone https://github.com/Henri-is-exploring/contract-review.git \
-  ~/.workbuddy/skills/contract-review
-```
+- 把整个 `contract-review/` 文件夹复制到你的 Agent 的 skills 目录下（目录名保持 `contract-review`）；
+- 具体路径取决于你用的 Agent，例如某些 Agent 的 skills 目录形如 `~/.agent/skills/` 或应用数据下的 `skills/` 文件夹；
+- 若你的 Agent 支持从 Git 直接加载，也可 `git clone` 到对应目录。
 
-或者手动复制：把整个 `contract-review/` 文件夹复制到 `~/.workbuddy/skills/contract-review/` 即可。
-
-装好后，在对话里上传一份 `.docx` 合同并说「审核这份合同」，Agent 会先确认你的立场（甲方 / 乙方）、谈判地位与审核尺度，再按下方 8 步工作流产出 Word 修订稿 + 审核报告。
+放入后，在对话里上传一份 `.docx` 合同并说「审核这份合同」，Agent 会先确认你的立场（甲方 / 乙方）、谈判地位与审核尺度，再按下方 8 步工作流产出 Word 修订稿 + 审核报告。
 
 ## 特性
 

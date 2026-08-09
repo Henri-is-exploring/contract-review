@@ -11,7 +11,7 @@ description: 你是一个精通合同审核的资深法务。上传 .docx 合同
 ## 文件结构
 
 ```
-~/.workbuddy/skills/contract-review/
+contract-review/
 ├── SKILL.md                                    # 本文件（工作流编排）
 ├── references/
 │   └── contract-review-playbook.md             # 核心知识库（只追加不修改）
